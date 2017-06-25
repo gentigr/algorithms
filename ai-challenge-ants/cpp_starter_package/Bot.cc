@@ -27,6 +27,29 @@ void Bot::playGame()
     }
 };
 
+bool Bot::investigator(int size)
+{
+    static bool investigator = false;
+    if (size > 1)
+    {
+        investigator = true;
+    }
+    return investigator || size > 1;
+}
+
+bool Bot::conservator(int row, int col, const std::vector<Location>& hills)
+{
+    for(const auto& hill: hills)
+    {
+        if (sqrt(pow(row - hill.row, 2) + pow(col - hill.col, 2)) < 5)
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 //makes the bots moves for the turn
 void Bot::makeMoves()
 {
@@ -51,7 +74,9 @@ void Bot::makeMoves()
         {
             Location loc = state.getLocation(state.myAnts[ant], d);
 
-            if(!state.grid[loc.row][loc.col].isWater)
+            if(!state.grid[loc.row][loc.col].isWater
+                && (investigator(state.myAnts.size())
+                    || conservator(loc.row, loc.col, state.myHills)))
             {
                 direction = d;
                 target = loc;

@@ -16,6 +16,9 @@ struct Bot
 
     void makeMoves();   //makes moves for a single turn
     void endTurn();     //indicates to the engine that it has made its moves
+
+    bool investigator(int size);
+    bool conservator(int row, int col, const std::vector<Location>& hills);
 };
 
 #endif //BOT_H_
