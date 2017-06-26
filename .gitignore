@@ -33,3 +33,6 @@
 
 # Astyle original copies
 *.orig
+
+# Different local tools
+ai-challenge-ants/tools/
