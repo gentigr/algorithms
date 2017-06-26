@@ -19,6 +19,9 @@ struct Bot
 
     bool investigator(int size);
     bool conservator(int row, int col, const std::vector<Location>& hills);
+
+    void updateMap(std::vector<std::vector<double>>& weights, const std::vector<Location>& hills, int size);
+    void normalize(std::vector<std::vector<double>>& weights);
 };
 
 #endif //BOT_H_

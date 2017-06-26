@@ -1,4 +1,5 @@
 #include <map>
+#include <climits>
 
 #include "Bot.h"
 
@@ -50,12 +51,49 @@ bool Bot::conservator(int row, int col, const std::vector<Location>& hills)
     return false;
 }
 
-//makes the bots moves for the turn
-void Bot::makeMoves()
+void Bot::normalize(std::vector<std::vector<double>>& weights)
 {
-    state.bug << "turn " << state.turn << ":" << endl;
-    state.bug << state << endl;
-    static auto weights = vector<vector<double>>(state.rows, vector<double>(state.cols, 0.0));
+    int max = INT_MIN;
+    for(auto& row: weights)
+    {
+        for(auto& column: row)
+        {
+            if (column > max)
+            {
+                max = column;
+            }
+        }
+    }
+    for(auto& row: weights)
+    {
+        for(auto& column: row)
+        {
+            column /= max;
+        }
+    }
+}
+
+void print(const std::vector<std::vector<double>>& weights)
+{
+    std::fstream f;
+    f.open("/tmp/mtx.txt", std::fstream::in | std::fstream::app | std::fstream::out);
+    for(int i = 0; i < weights.size(); i++)
+    {
+        for(int j = 0; j < weights[0].size(); j++)
+        {
+            f << weights[i][j] << ' ';
+        }
+        f << std::endl;
+        f.flush();
+    }
+    f << std::endl;
+    f.close();
+}
+
+void Bot::updateMap(std::vector<std::vector<double>>& weights,
+                    const std::vector<Location>& hills,
+                    int size)
+{
     for(auto& row: weights)
     {
         for(auto& column: row)
@@ -63,10 +101,58 @@ void Bot::makeMoves()
             column *= 0.9;
         }
     }
+    if (size == 1) // conservator
+    {
+        double mtx[weights.size()][weights[0].size()]{};
+        for(const auto& hill: hills)
+        {
+            for(int i = 0; i < weights.size(); i++)
+            {
+                for(int j = 0; j < weights[0].size(); j++)
+                {
+                    mtx[i][j] += 0.1*(abs(i - hill.row) + abs(j - hill.col)) / hills.size();
+                }
+            }
+        }
+        for(int i = 0; i < weights.size(); i++)
+        {
+            for(int j = 0; j < weights[0].size(); j++)
+            {
+                weights[i][j] += mtx[i][j];
+            }
+        }
+    }
+    else if (size > 10) // hunter
+    {
+    }
+}
+
+//makes the bots moves for the turn
+void Bot::makeMoves()
+{
+    state.bug << "turn " << state.turn << ":" << endl;
+    state.bug << state << endl;
+    static auto weights = vector<vector<double>>(state.rows, vector<double>(state.cols, 0.0));
+#if 0
+    print(weights);
+    this->updateMap(weights, state.myHills, state.myAnts.size());
+#endif
 
     //picks out moves for each ant
     for(int ant=0; ant<(int)state.myAnts.size(); ant++)
     {
+        if (ant == 0)
+        {
+            // homester
+        }
+        else if (ant > 0 && ant < 11)
+        {
+            // investigator
+        }
+        else
+        {
+            // hunter
+        }
         int direction;
         Location target;
         std::map<int, Location> directions;
@@ -101,6 +187,9 @@ void Bot::makeMoves()
         }
     }
 
+#if 0
+    this->normalize(weights);
+#endif
     state.bug << "time taken: " << state.timer.getTime() << "ms" << endl << endl;
 };
 
