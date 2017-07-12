@@ -14,5 +14,6 @@ int main(int argc, char* argv[])
     }
 
     std::cout << (promoted < hello.size() ? "NO" : "YES") << std::endl;
-    return 0;
+
+	return 0;
 }
