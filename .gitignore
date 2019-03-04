@@ -36,3 +36,5 @@
 
 # Different local tools
 ai-challenge-ants/tools/
+googletest
+BUILD
