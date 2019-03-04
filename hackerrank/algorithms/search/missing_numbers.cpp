@@ -21,8 +21,8 @@ int main()
     // suppose, that first array does not lose the min value
     // otherwise there is an error
     int substraction_array[SUB_SIZE] {};
-    for(const auto& number : a_input) {
-        substraction_array[number - min]++;
+    for(const auto& num : a_input) {
+        substraction_array[num - min]++;
     }
 
     int m;

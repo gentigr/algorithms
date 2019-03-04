@@ -1,13 +1,17 @@
 // https://www.hackerrank.com/challenges/separate-the-numbers/problem
 #include <iostream>
 
-std::string get_next_value(const std::string& number)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+#pragma GCC diagnostic ignored "-Wsign-compare"
+
+static std::string get_next_value(const std::string& number)
 {
     long long int value = std::stoll(number);
     return std::to_string(value + 1);
 }
 
-long long int beautiful(const std::string& str)
+static long long int beautiful(const std::string& str)
 {
     for(int length = 1; length < str.size() / 2 + 1; ++length) {
         std::string current_number = str.substr(0, length);
@@ -47,3 +51,5 @@ int main()
 
     return 0;
 }
+
+#pragma GCC diagnostic pop

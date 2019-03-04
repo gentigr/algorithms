@@ -1,4 +1,4 @@
-project(${PROJECT_NAME}-search)
+project(${PROJECT_NAME}-bit-manipulation)
 
 file(GLOB SRC_FILES "${PROJECT_SOURCE_DIR}/*.cpp")
 foreach(SRC_FILEPATH ${SRC_FILES})

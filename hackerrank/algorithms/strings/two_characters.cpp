@@ -3,7 +3,7 @@
 #include <iostream>
 #include <algorithm>
 
-int sequence_length(std::string& input, char first, char second)
+static int sequence_length(std::string& input, char first, char second)
 {
     int count = 0;
     char previous = '\0';
@@ -21,7 +21,7 @@ int sequence_length(std::string& input, char first, char second)
     return count;
 }
 
-int max_sequence_length(std::string& input)
+static int max_sequence_length(std::string& input)
 {
     std::set<char> unique_letters;
     for(char c : input) {

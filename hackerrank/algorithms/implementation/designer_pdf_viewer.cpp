@@ -4,6 +4,9 @@
 
 #define LETTERS_COUNT 26
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+
 int main()
 {
     std::array<int, LETTERS_COUNT> alphabet{};
@@ -21,3 +24,5 @@ int main()
 
     return 0;
 }
+
+#pragma GCC diagnostic pop

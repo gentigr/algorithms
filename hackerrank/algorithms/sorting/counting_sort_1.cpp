@@ -4,6 +4,10 @@
 
 #define MAX_ARRAY_SIZE 100
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+#pragma GCC diagnostic ignored "-Wsign-compare"
+
 int main()
 {
     int n;
@@ -17,3 +21,5 @@ int main()
 
     return 0;
 }
+
+#pragma GCC diagnostic pop

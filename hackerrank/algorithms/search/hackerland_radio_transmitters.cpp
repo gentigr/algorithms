@@ -4,6 +4,10 @@
 
 #define MAX_N 100001
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+#pragma GCC diagnostic ignored "-Wsign-compare"
+
 int main()
 {
     int n, k;
@@ -24,3 +28,5 @@ int main()
 
     return 0;
 }
+
+#pragma GCC diagnostic pop

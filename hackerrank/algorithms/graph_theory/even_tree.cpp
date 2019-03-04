@@ -3,6 +3,9 @@
 #include <vector>
 #include <iostream>
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+
 int main()
 {
     int n, m;
@@ -28,3 +31,5 @@ int main()
 
     return 0;
 }
+
+#pragma GCC diagnostic pop

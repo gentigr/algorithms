@@ -4,7 +4,7 @@
 #include <utility>
 #include <iostream>
 
-void initialize_field(int** field, int n)
+static void initialize_field(int** field, int n)
 {
     for(int i = 0; i < 3 * n; ++i) {
         for(int j = 0; j < 3 * n; ++j) {
@@ -18,11 +18,11 @@ void initialize_field(int** field, int n)
     }
 }
 
-std::set<std::pair<int, int>> get_next_positions(
-                               int** field,
-                               std::set<std::pair<int, int>>& positions,
-                               int x,
-                               int y)
+static std::set<std::pair<int, int>> get_next_positions(
+                                      int** field,
+                                      std::set<std::pair<int, int>>& positions,
+                                      int x,
+                                      int y)
 {
     std::vector<std::pair<int, int>> changes{};
     changes.push_back(std::make_pair(x, y));
@@ -49,7 +49,7 @@ std::set<std::pair<int, int>> get_next_positions(
     return new_positions;
 }
 
-int find_the_shortest_path(int** field, int n, int x, int y)
+static int find_the_shortest_path(int** field, int n, int x, int y)
 {
     std::set<std::pair<int, int>> positions{};
     positions.insert(std::make_pair(n, n));
@@ -65,7 +65,7 @@ int find_the_shortest_path(int** field, int n, int x, int y)
     return positions.empty() ? -1 : steps;
 }
 
-int** allocate_2dim(int size)
+static int** allocate_2dim(int size)
 {
     int **mem = new int*[size];
     for(int i = 0; i < size; ++i) {
@@ -74,7 +74,7 @@ int** allocate_2dim(int size)
     return mem;
 }
 
-void deallocate_2dim(int** mem, int size)
+static void deallocate_2dim(int** mem, int size)
 {
     for(int i = 0; i < size; ++i) {
         delete[] mem[i];

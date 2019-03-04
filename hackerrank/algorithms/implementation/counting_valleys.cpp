@@ -1,6 +1,9 @@
 // https://www.hackerrank.com/challenges/counting-valleys
 #include <iostream>
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wswitch-default"
+
 int main()
 {
     int n;
@@ -27,3 +30,5 @@ int main()
 
     return 0;
 }
+
+#pragma GCC diagnostic pop

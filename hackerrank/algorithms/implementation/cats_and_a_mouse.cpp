@@ -10,11 +10,9 @@ int main()
     for(int x, y, z; q-- > 0 && std::cin >> x >> y >> z;) {
         if (abs(x - z) == abs(y - z)) {
             std::cout << "Mouse C" << std::endl;
-        }
-        else if (abs(x - z) > abs(y - z)) {
+        } else if (abs(x - z) > abs(y - z)) {
             std::cout << "Cat B" << std::endl;
-        }
-        else {
+        } else {
             std::cout << "Cat A" << std::endl;
         }
     }

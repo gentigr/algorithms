@@ -4,7 +4,7 @@
 #include <utility>
 #include <iostream>
 
-std::vector<std::pair<long long, long long>>
+static std::vector<std::pair<long long, long long>>
         find_new_regions(const std::map<long long, long long>& regions,
                          long long start,
                          long long end)

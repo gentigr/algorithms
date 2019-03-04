@@ -5,6 +5,10 @@
 
 #define MAX_POSSIBLE_DIFFERENCE 2000000000
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+#pragma GCC diagnostic ignored "-Wsign-compare"
+
 int main()
 {
     int n;
@@ -28,3 +32,5 @@ int main()
 
     return 0;
 }
+
+#pragma GCC diagnostic pop

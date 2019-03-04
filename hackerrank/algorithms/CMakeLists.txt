@@ -1,3 +1,10 @@
 project(${PROJECT_NAME}-algorithms)
 
+add_subdirectory(bit_manipulation)
+add_subdirectory(graph_theory)
+add_subdirectory(greedy)
+add_subdirectory(implementation)
+add_subdirectory(recursion)
 add_subdirectory(search)
+add_subdirectory(sorting)
+add_subdirectory(strings)

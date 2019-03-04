@@ -6,7 +6,10 @@
 
 #define MONTH_COUNT 12
 
-int determine_february_length(int year)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+
+static int determine_february_length(int year)
 {
     if (year < 1918) {
         return (year % 4 == 0) ? 29 : 28; // julian_calendar
@@ -19,7 +22,7 @@ int determine_february_length(int year)
     return ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) ? 29 : 28; // gregorian_calendar
 }
 
-std::tuple<int, int, int> calculate_date(int day, int year)
+static std::tuple<int, int, int> calculate_date(int day, int year)
 {
     std::array<int, MONTH_COUNT> days = {31, determine_february_length(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
@@ -42,3 +45,5 @@ int main()
 
     return 0;
 }
+
+#pragma GCC diagnostic pop

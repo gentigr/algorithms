@@ -2,9 +2,13 @@
 #include <string>
 #include <iostream>
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+#pragma GCC diagnostic ignored "-Wsign-compare"
+
 // ASCII: [65, 90] == ['A', 'Z'] , [97, 122] == ['a', 'z']
 // 25 == 'Z' - 'A' == 'z' - 'a'
-char caesar_cipher(char c, int k)
+static char caesar_cipher(char c, int k)
 {
     if (c >= 'A' && c <= 'Z') {
         return ((c - 'A' + k) % ('Z' - 'A' + 1)) + 'A';
@@ -34,3 +38,5 @@ int main()
 
     return 0;
 }
+
+#pragma GCC diagnostic pop

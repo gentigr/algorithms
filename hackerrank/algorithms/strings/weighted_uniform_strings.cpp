@@ -2,6 +2,10 @@
 #include <set>
 #include <iostream>
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+#pragma GCC diagnostic ignored "-Wsign-compare"
+
 int main()
 {
     std::string line;
@@ -22,3 +26,5 @@ int main()
 
     return 0;
 }
+
+#pragma GCC diagnostic pop

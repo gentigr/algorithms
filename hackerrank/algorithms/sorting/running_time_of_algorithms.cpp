@@ -13,7 +13,7 @@ int get_number_of_shifts_insertion_sort(std::vector<T>& input)
             number_of_shifts += (*(inner - 1) > value);
         }
     }
-    
+
     return number_of_shifts;
 }
 

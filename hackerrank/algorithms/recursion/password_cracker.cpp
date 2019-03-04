@@ -4,10 +4,10 @@
 #include <iostream>
 #include <unordered_set>
 
-std::pair<std::string, bool> do_attempt(const std::unordered_set<std::string>& passwords,
-                                        const std::string& login,
-                                        size_t position,
-                                        std::vector<int>& memoization)
+static std::pair<std::string, bool> do_attempt(const std::unordered_set<std::string>& passwords,
+        const std::string& login,
+        size_t position,
+        std::vector<int>& memoization)
 {
     if (memoization[position] != 0) {
         return std::make_pair("", false);

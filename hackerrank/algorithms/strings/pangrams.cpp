@@ -3,7 +3,10 @@
 #include <iostream>
 #include <algorithm>
 
-bool is_pangram(const std::string& sentence)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+
+static bool is_pangram(const std::string& sentence)
 {
     const int ALPHABET_LENGTH = 25;
     std::array<int, ALPHABET_LENGTH> letters{};
@@ -27,3 +30,5 @@ int main()
 
     return 0;
 }
+
+#pragma GCC diagnostic pop

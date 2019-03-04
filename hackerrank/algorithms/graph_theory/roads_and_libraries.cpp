@@ -3,6 +3,9 @@
 #include <iostream>
 #include <unordered_map>
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+
 template<typename T>
 T evaluate_minimal_cost(T towns_count, T library_cost, T road_cost, std::unordered_map<T, std::set<T>>& roads)
 {
@@ -59,3 +62,5 @@ int main()
 
     return 0;
 }
+
+#pragma GCC diagnostic pop

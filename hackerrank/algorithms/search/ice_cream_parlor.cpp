@@ -3,13 +3,16 @@
 #include <iostream>
 #include <algorithm>
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+
 struct IceCream {
     int flavor;
     int index;
 };
 
-int binary_search(int first, int last,
-                  const std::vector<IceCream>& arr, int search)
+static int binary_search(int first, int last,
+                         const std::vector<IceCream>& arr, int search)
 {
     if (arr[first].flavor == search || arr[last].flavor == search) {
         return (arr[first].flavor == search ? arr[first] : arr[last]).index;
@@ -61,3 +64,5 @@ int main()
     }
     return 0;
 }
+
+#pragma GCC diagnostic pop

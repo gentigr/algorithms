@@ -1,7 +1,11 @@
 // https://www.hackerrank.com/challenges/hackerrank-in-a-string
 #include <iostream>
 
-bool is_contain(const std::string& str, const std::string& word)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+#pragma GCC diagnostic ignored "-Wsign-compare"
+
+static bool is_contain(const std::string& str, const std::string& word)
 {
     int i = 0;
     for(int j = 0; j < str.size(); i += (str[j] == word[i]), ++j);
@@ -22,3 +26,5 @@ int main()
 
     return 0;
 }
+
+#pragma GCC diagnostic pop

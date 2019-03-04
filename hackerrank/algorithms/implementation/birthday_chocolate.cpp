@@ -2,6 +2,10 @@
 #include <vector>
 #include <iostream>
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+#pragma GCC diagnostic ignored "-Wsign-compare"
+
 int main()
 {
     int count;
@@ -25,3 +29,5 @@ int main()
 
     return 0;
 }
+
+#pragma GCC diagnostic pop

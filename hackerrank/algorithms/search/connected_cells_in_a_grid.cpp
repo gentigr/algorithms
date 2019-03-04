@@ -3,9 +3,12 @@
 #include <utility>
 #include <iostream>
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+
 // this function clears cells which were found during investigation
-std::vector<std::pair<int, int>> investigate_region(
-                                  int** matrix, int row, int column)
+static std::vector<std::pair<int, int>> investigate_region(
+        int** matrix, int row, int column)
 {
     std::vector<std::pair<int, int>> to_visit = {
         std::make_pair(row - 1, column - 1),
@@ -30,7 +33,7 @@ std::vector<std::pair<int, int>> investigate_region(
 }
 
 // this function clears filled cells during search
-int get_current_region_size(int** matrix, int row, int column)
+static int get_current_region_size(int** matrix, int row, int column)
 {
     int region_size = 0;
 
@@ -53,7 +56,7 @@ int get_current_region_size(int** matrix, int row, int column)
     return region_size;
 }
 
-int get_max_region_size(int** matrix, int rows, int columns)
+static int get_max_region_size(int** matrix, int rows, int columns)
 {
     int max_region_size = -1;
     for (int i = 1; i < rows - 1; ++i) {
@@ -97,3 +100,5 @@ int main()
 
     return 0;
 }
+
+#pragma GCC diagnostic pop

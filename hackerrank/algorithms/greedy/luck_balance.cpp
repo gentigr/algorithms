@@ -3,6 +3,9 @@
 #include <iostream>
 #include <algorithm>
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+
 int main()
 {
     int n, k;
@@ -21,9 +24,13 @@ int main()
     }
 
     long long luck_balance = 0;
-    std::for_each(l.cbegin(), l.cend(), [&luck_balance](int n) { luck_balance += n; });
+    std::for_each(l.cbegin(), l.cend(), [&luck_balance](int b) {
+        luck_balance += b;
+    });
 
     std::cout << luck_balance << std::endl;
 
     return 0;
 }
+
+#pragma GCC diagnostic pop

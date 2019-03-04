@@ -2,7 +2,10 @@
 #include <vector>
 #include <iostream>
 
-bool does_middle_exist(const std::vector<int>& data)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wsign-conversion"
+
+static bool does_middle_exist(const std::vector<int>& data)
 {
     long long left = 0, right = 0;
 
@@ -27,3 +30,5 @@ int main()
 
     return 0;
 }
+
+#pragma GCC diagnostic pop
