@@ -7,18 +7,18 @@ vector<string> split_string(string);
 
 // Complete the circularArrayRotation function below.
 static vector<size_t> circular_array_rotation(const vector<size_t>& a,
-        size_t k,
-        const vector<size_t>& queries)
+                                              size_t k,
+                                              const vector<size_t>& queries)
 {
     vector<size_t> result(queries.size(), 0);
     vector<size_t> rotated(a.size(), 0);
 
     k %= a.size();
-    for(size_t i = 0; i < a.size(); ++i) {
+    for (size_t i = 0; i < a.size(); ++i) {
         rotated[(i + k) % a.size()] = a[i];
     }
 
-    for(size_t i = 0; i < queries.size(); ++i) {
+    for (size_t i = 0; i < queries.size(); ++i) {
         result[i] = rotated[queries[i]];
     }
 
@@ -84,7 +84,8 @@ int main()
 
 vector<string> split_string(string input_string)
 {
-    string::iterator new_end = unique(input_string.begin(), input_string.end(), [] (const char &x, const char &y) {
+    string::iterator new_end = unique(input_string.begin(),
+    input_string.end(), [] (const char& x, const char& y) {
         return x == y and x == ' ';
     });
 
@@ -107,7 +108,8 @@ vector<string> split_string(string input_string)
         pos = input_string.find(delimiter, i);
     }
 
-    splits.push_back(input_string.substr(i, min(pos, input_string.length()) - i + 1));
+    splits.push_back(input_string.substr(i, min(pos,
+                                                input_string.length()) - i + 1));
 
     return splits;
 }

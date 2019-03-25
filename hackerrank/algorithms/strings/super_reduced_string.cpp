@@ -8,7 +8,7 @@ int main()
     std::cin >> input;
 
     std::vector<char> data;
-    for(const auto& ch : input) {
+    for (const auto& ch : input) {
         if (data.size() > 0 && data.back() == ch) {
             data.pop_back();
         } else {
@@ -17,7 +17,7 @@ int main()
     }
 
     std::string output;
-    for(const auto& ch : data) {
+    for (const auto& ch : data) {
         output += ch;
     }
 

@@ -7,7 +7,7 @@ int main()
     std::cin >> n >> k;
 
     int max = 0;
-    for(int number; n-- > 0 && std::cin >> number;) {
+    for (int number; n-- > 0 && std::cin >> number;) {
         max = number > max ? number : max;
     }
 

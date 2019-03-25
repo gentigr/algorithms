@@ -15,14 +15,14 @@ int main()
     std::cin >> n;
 
     std::vector<int> a;
-    for(int number; n-- != 0 && std::cin >> number;) {
+    for (int number; n-- != 0 && std::cin >> number;) {
         a.push_back(number);
     }
 
     std::sort(a.begin(), a.end());
 
     int min_difference = MAX_POSSIBLE_DIFFERENCE + 1;
-    for(int i = 1; i < a.size(); ++i) {
+    for (int i = 1; i < a.size(); ++i) {
         if (abs(a[i - 1] - a[i]) < min_difference) {
             min_difference = abs(a[i - 1] - a[i]);
         }

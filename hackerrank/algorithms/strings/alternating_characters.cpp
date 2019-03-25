@@ -6,10 +6,10 @@ int main()
     int t;
     std::cin >> t;
 
-    for(std::string s; t-- > 0 && std::cin >> s;) {
+    for (std::string s; t-- > 0 && std::cin >> s;) {
         int count = 0;
         char prev = 0;
-        for(char c : s) {
+        for (char c : s) {
             count += (prev == c);
             prev = c;
         }

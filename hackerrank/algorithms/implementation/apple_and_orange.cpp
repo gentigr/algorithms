@@ -11,11 +11,11 @@ int main()
     std::cin >> m >> n;
 
     int apples = 0, oranges = 0;
-    for(int position; m != 0 && std::cin >> position; --m) {
+    for (int position; m != 0 && std::cin >> position; --m) {
         apples += (position + a >= s && position + a <= t);
     }
 
-    for(int position; n != 0 && std::cin >> position; --n) {
+    for (int position; n != 0 && std::cin >> position; --n) {
         oranges += (position + b >= s && position + b <= t);
     }
 

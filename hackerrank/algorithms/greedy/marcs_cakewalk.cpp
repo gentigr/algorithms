@@ -14,11 +14,11 @@ int main()
     std::cin >> n;
 
     std::vector<int> calories;
-    for(int c; n-- != 0 && std::cin >> c; calories.push_back(c));
+    for (int c; n-- != 0 && std::cin >> c; calories.push_back(c));
     std::sort(calories.rbegin(), calories.rend());
 
     long long miles_count = 0;
-    for(int i = 0; i < calories.size(); ++i) {
+    for (int i = 0; i < calories.size(); ++i) {
         miles_count += calories[i] * pow(2, i);
     }
 

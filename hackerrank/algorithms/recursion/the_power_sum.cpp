@@ -11,8 +11,9 @@ T count(T start, T degree, T sum, T target_sum)
     }
 
     T quantity = 0;
-    for(T i = start; sum + pow(i, degree) <= target_sum; ++i) {
-        quantity += count(i + 1, degree, sum + static_cast<T>(pow(i, degree)), target_sum);
+    for (T i = start; sum + pow(i, degree) <= target_sum; ++i) {
+        quantity += count(i + 1, degree, sum + static_cast<T>(pow(i, degree)),
+                          target_sum);
     }
 
     return quantity;
@@ -45,7 +46,7 @@ std::function<T(T, T)> calculate(T degree, T goal_sum)
         }
 
         T quantity = 0;
-        for(T i = start; sum + pow(i, degree) <= goal_sum; ++i) {
+        for (T i = start; sum + pow(i, degree) <= goal_sum; ++i) {
             quantity += count(i + 1, sum + static_cast<T>(pow(i, degree)));
         }
 

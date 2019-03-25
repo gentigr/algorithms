@@ -14,8 +14,8 @@ int main()
 
     int valley_count = 0;
     int see_level = 0;
-    for(char c : landscape) {
-        switch(c) {
+    for (char c : landscape) {
+        switch (c) {
         case 'D':
             --see_level;
             break;

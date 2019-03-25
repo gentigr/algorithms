@@ -5,13 +5,13 @@
 #include <iostream>
 
 static std::vector<std::pair<long long, long long>>
-        find_new_regions(const std::map<long long, long long>& regions,
-                         long long start,
-                         long long end)
+                                                 find_new_regions(const std::map<long long, long long>& regions,
+                                                                  long long start,
+                                                                  long long end)
 {
     bool covered = false;
     std::vector<std::pair<long long, long long>> new_regions;
-    for(auto it = regions.begin(); it != regions.end() && !covered; ++it) {
+    for (auto it = regions.begin(); it != regions.end() && !covered; ++it) {
         if (start < it->first) {
             if (end < it->first) {
                 new_regions.push_back(std::make_pair(start, end));
@@ -45,11 +45,11 @@ int main()
 
     long long engaged_space = 0;
     std::map<long long, std::map<long long, long long>> grid{};
-    for(long long row, s, e; k-- > 0 && std::cin >> row >> s >> e; ) {
+    for (long long row, s, e; k-- > 0 && std::cin >> row >> s >> e; ) {
         auto new_regions = find_new_regions(grid[row], s, e);
 
         long long count = 0;
-        for(auto& r : new_regions) {
+        for (auto& r : new_regions) {
             count += (r.second - r.first + 1);
             grid[row][r.first] = r.second;
         }

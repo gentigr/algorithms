@@ -7,7 +7,7 @@ int main()
     std::cin >> n;
 
     unsigned long long count = 0;
-    for(; n != 0; count += (n % 2 == 0), n >>= 1);
+    for (; n != 0; count += (n % 2 == 0), n >>= 1);
 
     std::cout << (1L << count) << std::endl;
 

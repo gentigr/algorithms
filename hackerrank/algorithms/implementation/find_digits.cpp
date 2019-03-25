@@ -8,7 +8,7 @@ using namespace std;
 static int find_digits(int n)
 {
     int count = 0;
-    for(int i = n; i > 0; i /= 10) {
+    for (int i = n; i > 0; i /= 10) {
         int divider = i % 10;
         count += (divider != 0 && n % divider == 0);
     }

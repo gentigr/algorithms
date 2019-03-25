@@ -5,7 +5,7 @@
 template<typename T>
 void print_collection(const std::vector<T>& data)
 {
-    for(const auto& item : data) {
+    for (const auto& item : data) {
         std::cout << item << " ";
     }
     std::cout << std::endl;
@@ -14,7 +14,7 @@ void print_collection(const std::vector<T>& data)
 template<typename T>
 void insertion_sort(std::vector<T>& input, T value)
 {
-    for(auto it = input.rbegin(); it != input.rend() - 1; ++it) {
+    for (auto it = input.rbegin(); it != input.rend() - 1; ++it) {
         *it = (*(it + 1) <= value) ? value : *(it + 1);
         print_collection<T>(input);
         if (*(it + 1) <= value) {
@@ -32,7 +32,7 @@ int main()
     std::cin >> size;
 
     std::vector<int> data;
-    for(int i = 0; i < size; ++i) {
+    for (int i = 0; i < size; ++i) {
         int number;
         std::cin >> number;
         data.push_back(number);

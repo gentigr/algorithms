@@ -12,14 +12,14 @@ int main()
     std::cin >> n >> k;
 
     std::vector<int> l{};
-    for(int number, t; n-- > 0 && std::cin >> number >> t;) {
+    for (int number, t; n-- > 0 && std::cin >> number >> t;) {
         // yes, we can collect here (t == 0) directly into luck_balance,
         // but it seems like we may skip it for current constraints
         l.push_back((t == 0) ? number : -number);
     }
 
     std::sort(l.begin(), l.end());
-    for(int i = 0; i < k; ++i) {
+    for (int i = 0; i < k; ++i) {
         l[i] = abs(l[i]);
     }
 

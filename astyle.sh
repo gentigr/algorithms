@@ -1,0 +1,22 @@
+#!/bin/bash
+astyle --style=1tbs \
+    --indent=spaces \
+    --attach-namespaces \
+    --attach-classes \
+    --attach-closing-while \
+    --indent-labels \
+    --indent-col1-comments \
+    --pad-oper \
+    --pad-comma \
+    --pad-header \
+    --align-pointer=type \
+    --align-reference=type \
+    --add-braces \
+    --close-templates \
+    --max-code-length=80 \
+    --break-after-logical \
+    --mode=c \
+    --suffix=none \
+    --indent-continuation=2 \
+    --max-continuation-indent=80 \
+    --recursive algorithms/*.cpp

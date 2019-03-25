@@ -9,7 +9,7 @@ static int viral_advertising(int n)
 {
     int cumulative = 0;
     int count = 5;
-    for(int i = n; i > 0; --i) {
+    for (int i = n; i > 0; --i) {
         cumulative += count / 2;
         count = (count / 2 * 3);
     }

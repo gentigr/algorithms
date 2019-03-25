@@ -19,7 +19,8 @@ static int determine_february_length(int year)
         return 15; // transitional_calendar
     }
 
-    return ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) ? 29 : 28; // gregorian_calendar
+    return ((year % 400 == 0) || (year % 4 == 0 &&
+                                  year % 100 != 0)) ? 29 : 28; // gregorian_calendar
 }
 
 static std::tuple<int, int, int> calculate_date(int day, int year)
@@ -27,7 +28,7 @@ static std::tuple<int, int, int> calculate_date(int day, int year)
     std::array<int, MONTH_COUNT> days = {31, determine_february_length(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     int month = 0;
-    for(; day - days[month] > 0; day -= days[month], ++month);
+    for (; day - days[month] > 0; day -= days[month], ++month);
 
     return std::make_tuple(day, month + 1, year);
 }

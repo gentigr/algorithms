@@ -7,7 +7,7 @@ int main()
     std::cin >> n;
 
     int result = 0;
-    for(int number; n-- != 0 && std::cin >> number; result ^= number);
+    for (int number; n-- != 0 && std::cin >> number; result ^= number);
 
     std::cout << result << std::endl;
 

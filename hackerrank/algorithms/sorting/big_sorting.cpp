@@ -10,15 +10,15 @@ int main()
     std::cin >> n;
 
     std::map<int, std::vector<std::string>> data;
-    while(n-- != 0) {
+    while (n-- != 0) {
         std::string number;
         std::cin >> number;
         data[number.size()].push_back(number);
     }
 
-    for(auto& kv : data) {
+    for (auto& kv : data) {
         std::sort(kv.second.begin(), kv.second.end());
-        for(const auto& num : kv.second) {
+        for (const auto& num : kv.second) {
             std::cout << num << std::endl;
         }
     }

@@ -11,7 +11,7 @@ static string angry_professor(int k, vector<int>& a)
 {
     // may be optimized by breaking for cycle
     // when positive/negative threshhold exceeded
-    for(const auto& num : a) {
+    for (const auto& num : a) {
         k -= (num <= 0);
     }
     return k <= 0 ? "NO" : "YES";
@@ -62,7 +62,8 @@ int main()
 
 vector<string> split_string(string input_string)
 {
-    string::iterator new_end = unique(input_string.begin(), input_string.end(), [] (const char &x, const char &y) {
+    string::iterator new_end = unique(input_string.begin(),
+    input_string.end(), [] (const char& x, const char& y) {
         return x == y and x == ' ';
     });
 
@@ -85,7 +86,8 @@ vector<string> split_string(string input_string)
         pos = input_string.find(delimiter, i);
     }
 
-    splits.push_back(input_string.substr(i, min(pos, input_string.length()) - i + 1));
+    splits.push_back(input_string.substr(i, min(pos,
+                                                input_string.length()) - i + 1));
 
     return splits;
 }

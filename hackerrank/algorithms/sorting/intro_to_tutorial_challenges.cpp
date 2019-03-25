@@ -10,7 +10,7 @@ int main()
     int count;
     std::cin >> count;
 
-    for(int i = 0; count-- != 0; ++i) {
+    for (int i = 0; count-- != 0; ++i) {
         int number;
         std::cin >> number;
         if (value == number) {

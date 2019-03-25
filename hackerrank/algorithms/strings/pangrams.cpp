@@ -13,7 +13,7 @@ static bool is_pangram(const std::string& sentence)
 
     // there is should be check for ' ' inside this lambda
     std::for_each(sentence.cbegin(), sentence.cend(), [&letters](char c) {
-        ++letters[c - ((c > 'Z')? 'a' : 'A')];
+        ++letters[c - ((c > 'Z') ? 'a' : 'A')];
     });
 
     return std::none_of(letters.cbegin(), letters.cend(), [](int i) {

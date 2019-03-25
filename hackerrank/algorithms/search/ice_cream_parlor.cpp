@@ -44,7 +44,7 @@ int main()
 
         // NOTE: modify algorithm to use counting sort if
         //       you have any issues with performance
-        auto compare = [](IceCream& a, IceCream& b) {
+        auto compare = [](IceCream & a, IceCream & b) {
             return a.flavor < b.flavor;
         };
         std::sort(arr.begin(), arr.end(), compare);

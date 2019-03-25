@@ -9,7 +9,7 @@ static vector<size_t> permutation_equation(const vector<size_t>& p)
 {
     vector<size_t> result(p.size(), 0);
 
-    for(size_t i = 0; i < p.size(); ++i) {
+    for (size_t i = 0; i < p.size(); ++i) {
         size_t pos = p[p[i] - 1];
         result[pos - 1] = i + 1;
     }
@@ -61,7 +61,8 @@ int main()
 
 vector<string> split_string(string input_string)
 {
-    string::iterator new_end = unique(input_string.begin(), input_string.end(), [] (const char &x, const char &y) {
+    string::iterator new_end = unique(input_string.begin(),
+    input_string.end(), [] (const char& x, const char& y) {
         return x == y and x == ' ';
     });
 
@@ -84,7 +85,8 @@ vector<string> split_string(string input_string)
         pos = input_string.find(delimiter, i);
     }
 
-    splits.push_back(input_string.substr(i, min(pos, input_string.length()) - i + 1));
+    splits.push_back(input_string.substr(i, min(pos,
+                                                input_string.length()) - i + 1));
 
     return splits;
 }

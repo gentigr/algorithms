@@ -7,7 +7,7 @@ using namespace std;
 static int utopian_tree(int n)
 {
     int height = 1;
-    for(int cycle = 1; cycle <= n; ++cycle) {
+    for (int cycle = 1; cycle <= n; ++cycle) {
         height += (cycle % 2 == 1 ? height : 1);
     }
 

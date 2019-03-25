@@ -10,9 +10,9 @@ vector<string> split_string(string);
 static int beautiful_days(int i, int j, int k)
 {
     int count = 0;
-    for(int m = i; m <= j; ++m) {
+    for (int m = i; m <= j; ++m) {
         int inv_value = 0;
-        for(int v = m; v > 0; v /= 10) {
+        for (int v = m; v > 0; v /= 10) {
             inv_value = inv_value * 10 + v % 10;
         }
 
@@ -50,7 +50,8 @@ int main()
 
 vector<string> split_string(string input_string)
 {
-    string::iterator new_end = unique(input_string.begin(), input_string.end(), [] (const char &x, const char &y) {
+    string::iterator new_end = unique(input_string.begin(),
+    input_string.end(), [] (const char& x, const char& y) {
         return x == y and x == ' ';
     });
 
@@ -73,7 +74,8 @@ vector<string> split_string(string input_string)
         pos = input_string.find(delimiter, i);
     }
 
-    splits.push_back(input_string.substr(i, min(pos, input_string.length()) - i + 1));
+    splits.push_back(input_string.substr(i, min(pos,
+                                                input_string.length()) - i + 1));
 
     return splits;
 }

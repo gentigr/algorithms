@@ -5,9 +5,9 @@
 
 using namespace std;
 
-string ltrim(const string &);
-string rtrim(const string &);
-vector<string> split(const string &);
+string ltrim(const string&);
+string rtrim(const string&);
+vector<string> split(const string&);
 
 /*
  * Complete the 'pickingNumbers' function below.
@@ -19,13 +19,13 @@ static size_t picking_numbers(const vector<int>& a)
 {
     map<int, size_t> counter;
 
-    for(const auto& item : a) {
+    for (const auto& item : a) {
         ++counter[item];
     }
     int prev_key = 0;
     size_t prev_value = 0;
     size_t max_length = 0;
-    for(const auto& item : counter) {
+    for (const auto& item : counter) {
         size_t cur_value = item.second;
         if (abs(item.first - prev_key) <= 1) {
             cur_value += prev_value;
@@ -70,31 +70,31 @@ int main()
     return 0;
 }
 
-string ltrim(const string &str)
+string ltrim(const string& str)
 {
     string s(str);
 
     s.erase(
-        s.begin(),
-        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
+            s.begin(),
+            find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
     );
 
     return s;
 }
 
-string rtrim(const string &str)
+string rtrim(const string& str)
 {
     string s(str);
 
     s.erase(
-        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
-        s.end()
+            find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
+            s.end()
     );
 
     return s;
 }
 
-vector<string> split(const string &str)
+vector<string> split(const string& str)
 {
     vector<string> tokens;
 

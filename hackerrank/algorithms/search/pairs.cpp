@@ -9,12 +9,12 @@ int main()
     std::cin >> n >> k;
 
     std::set<long int> seq;
-    for(long int num; n-- > 0 && std::cin >> num; seq.insert(num));
+    for (long int num; n-- > 0 && std::cin >> num; seq.insert(num));
 
     long int count = 0;
     std::queue<long int> accumulator{};
-    for(int item : seq) {
-        while(!accumulator.empty() && accumulator.front() <= item) {
+    for (int item : seq) {
+        while (!accumulator.empty() && accumulator.front() <= item) {
             count += (accumulator.front() == item);
             accumulator.pop();
         }

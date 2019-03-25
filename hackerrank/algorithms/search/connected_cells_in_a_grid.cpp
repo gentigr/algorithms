@@ -8,7 +8,7 @@
 
 // this function clears cells which were found during investigation
 static std::vector<std::pair<int, int>> investigate_region(
-        int** matrix, int row, int column)
+                                             int** matrix, int row, int column)
 {
     std::vector<std::pair<int, int>> to_visit = {
         std::make_pair(row - 1, column - 1),
@@ -51,7 +51,7 @@ static int get_current_region_size(int** matrix, int row, int column)
                          std::end(coords));
         }
         v = new_v;
-    } while(!v.empty());
+    } while (!v.empty());
 
     return region_size;
 }
@@ -79,7 +79,7 @@ int main()
     int n, m;
     std::cin >> n >> m;
 
-    int** matrix = new int*[n + 2];
+    int** matrix = new int* [n + 2];
     for (int i = 0; i < n + 2; ++i) {
         matrix[i] = new int[m + 2];
     }

@@ -30,7 +30,7 @@ int main()
     int k;
     std::cin >> k;
 
-    for(int i = 0; i < s.size(); ++i) {
+    for (int i = 0; i < s.size(); ++i) {
         s[i] = caesar_cipher(s[i], k);
     }
 

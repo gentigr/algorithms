@@ -10,13 +10,14 @@
 int main()
 {
     std::array<int, LETTERS_COUNT> alphabet{};
-    for(int i = 0, height; i < LETTERS_COUNT && std::cin >> height; alphabet[i] = height, ++i);
+    for (int i = 0, height; i < LETTERS_COUNT &&
+            std::cin >> height; alphabet[i] = height, ++i);
 
     std::string word;
     std::cin >> word;
 
     int max = 0;
-    for(char c : word) {
+    for (char c : word) {
         max = (alphabet[c - 'a'] > max) ? alphabet[c - 'a'] : max;
     }
 

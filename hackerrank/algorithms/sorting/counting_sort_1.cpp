@@ -14,9 +14,9 @@ int main()
     std::cin >> n;
 
     std::array<int, MAX_ARRAY_SIZE> counters{};
-    for(int num; n-- > 0 && std::cin >> num; ++counters[num]);
+    for (int num; n-- > 0 && std::cin >> num; ++counters[num]);
 
-    for(int num = 0; num < counters.size(); std::cout << counters[num++] << " ");
+    for (int num = 0; num < counters.size(); std::cout << counters[num++] << " ");
     std::cout << std::endl;
 
     return 0;

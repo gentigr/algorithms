@@ -14,15 +14,15 @@ int main()
     std::cin >> n;
 
     std::array<std::vector<std::string>, MAX_NUMBER_VALUE> data{};
-    for(int i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
         int number;
         std::string str;
         std::cin >> number >> str;
         data[number].push_back((i < (n / 2) ? "-" : str));
     }
 
-    for(const auto& v : data) {
-        for(const auto& item : v) {
+    for (const auto& v : data) {
+        for (const auto& item : v) {
             std::cout << item << " ";
         }
     }

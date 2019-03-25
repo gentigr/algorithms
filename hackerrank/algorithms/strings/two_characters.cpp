@@ -7,7 +7,7 @@ static int sequence_length(std::string& input, char first, char second)
 {
     int count = 0;
     char previous = '\0';
-    for(char ch : input) {
+    for (char ch : input) {
         if (ch == first || ch == second) {
             if (previous == ch) {
                 return -1;
@@ -24,13 +24,14 @@ static int sequence_length(std::string& input, char first, char second)
 static int max_sequence_length(std::string& input)
 {
     std::set<char> unique_letters;
-    for(char c : input) {
+    for (char c : input) {
         unique_letters.insert(c);
     }
 
     int max = 0;
-    for(auto iti = unique_letters.begin(); iti != std::prev(unique_letters.end()); ++iti) {
-        for(auto itj = std::next(iti); itj != unique_letters.end(); ++itj) {
+    for (auto iti = unique_letters.begin(); iti != std::prev(unique_letters.end());
+            ++iti) {
+        for (auto itj = std::next(iti); itj != unique_letters.end(); ++itj) {
             int result = sequence_length(input, *iti, *itj);
             max = (result > max ? result : max);
         }
