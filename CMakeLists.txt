@@ -75,9 +75,9 @@ function(build_target TARGET_SOURCE_PATH)
             ${TARGET_NAME}_tests PRIVATE ${GTEST_INCLUDE_DIR}
         )
         target_link_libraries(${TARGET_NAME}_tests
-            pthread
             ${GTEST_LIB_DIR}/libgmock.a
             ${GTEST_LIB_DIR}/libgtest.a
+            pthread
         )
         target_compile_definitions(${TARGET_NAME}_tests PRIVATE TEST_BUILD)
         add_test(NAME ${TARGET_NAME}_tests COMMAND ${TARGET_NAME}_tests)
