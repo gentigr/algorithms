@@ -19,4 +19,4 @@ astyle --style=1tbs \
     --suffix=none \
     --indent-continuation=2 \
     --max-continuation-indent=80 \
-    --recursive algorithms/*.cpp
+    --recursive algorithms/*.cpp data-structures/*.cpp
