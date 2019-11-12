@@ -1,0 +1,160 @@
+// https://www.hackerrank.com/challenges/dynamic-array/problem
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+string ltrim(const string&);
+string rtrim(const string&);
+vector<string> split(const string&);
+
+/*
+ * Complete the 'dynamicArray' function below.
+ *
+ * The function is expected to return an INTEGER_ARRAY.
+ * The function accepts following parameters:
+ *  1. INTEGER n
+ *  2. 2D_INTEGER_ARRAY queries
+ */
+
+static vector<int> dynamicArray(int n, vector<vector<int>> queries)
+{
+    // safe to cast according to the terms of the assignment
+    std::vector<std::vector<int>> acc(static_cast<size_t>(n));
+    std::vector<int> lastAnswers;
+
+    int lastAnswer = 0;
+    for (const auto& query : queries) {
+        int type = query[0];
+        int x = query[1];
+        int y = query[2];
+
+        // safe to cast according to the terms of the assignment
+        size_t index = static_cast<size_t>((x ^ lastAnswer) % n);
+        if (type == 1) {
+            acc[index].push_back(y);
+        } else if (type == 2) {
+            // safe to cast and fetch according to the terms of the assignment
+            size_t lastAnswerIndex = static_cast<size_t>(y) % acc[index].size();
+            lastAnswer = acc[index][lastAnswerIndex];
+            lastAnswers.push_back(lastAnswer);
+        }
+    }
+
+    return lastAnswers;
+}
+
+#ifndef TEST_BUILD
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    string first_multiple_input_temp;
+    getline(cin, first_multiple_input_temp);
+
+    vector<string> first_multiple_input = split(rtrim(first_multiple_input_temp));
+
+    int n = stoi(first_multiple_input[0]);
+
+    size_t q = stoul(first_multiple_input[1]);
+
+    vector<vector<int>> queries(q);
+
+    for (size_t i = 0; i < q; i++) {
+        queries[i].resize(3);
+
+        string queries_row_temp_temp;
+        getline(cin, queries_row_temp_temp);
+
+        vector<string> queries_row_temp = split(rtrim(queries_row_temp_temp));
+
+        for (size_t j = 0; j < 3; j++) {
+            int queries_row_item = stoi(queries_row_temp[j]);
+
+            queries[i][j] = queries_row_item;
+        }
+    }
+
+    vector<int> result = dynamicArray(n, queries);
+
+    for (size_t i = 0; i < result.size(); i++) {
+        fout << result[i];
+
+        if (i != result.size() - 1) {
+            fout << "\n";
+        }
+    }
+
+    fout << "\n";
+
+    fout.close();
+
+    return 0;
+}
+
+string ltrim(const string& str)
+{
+    string s(str);
+
+    s.erase(
+            s.begin(),
+            find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
+    );
+
+    return s;
+}
+
+string rtrim(const string& str)
+{
+    string s(str);
+
+    s.erase(
+            find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
+            s.end()
+    );
+
+    return s;
+}
+
+vector<string> split(const string& str)
+{
+    vector<string> tokens;
+
+    string::size_type start = 0;
+    string::size_type end = 0;
+
+    while ((end = str.find(" ", start)) != string::npos) {
+        tokens.push_back(str.substr(start, end - start));
+
+        start = end + 1;
+    }
+
+    tokens.push_back(str.substr(start));
+
+    return tokens;
+}
+
+#else
+
+#include "gtest/gtest.h"
+
+TEST (DynamicArray, DynamicArrayTestCase0)
+{
+    std::vector<std::vector<int>> in = {{1, 0, 5},
+        {1, 1, 7},
+        {1, 0, 3},
+        {2, 1, 0},
+        {2, 1, 1}
+    };
+    std::vector<int> out = {7, 3};
+    ASSERT_EQ(dynamicArray(2, in), out);
+}
+
+int main(int argc, char* argv[])
+{
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
+
+#endif
